@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Customer Dashboard</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="material-icons-outlined">logout</span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <img src="images/logo.png" weight="150" height="150">
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">dashboard</span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">person</span> Profile
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">calendar_today</span> Schedule
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">payments</span>Billing
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="./index.html">
+              <span class="material-icons">poll</span> Reports
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">settings</span> Settings
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+              <span class="material-icons">help</span> Help
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <div class="Customer_heading">
+        <h1>Customer report</h1>
+      </div>
+      <div class="chart">
+        <h4>Customer weight progess</h4>
+        <canvas id="myChart" style="height: 125px;"></canvas>
+        <script>
+          var weightValues = [
+            {x:1, y:86},
+            {x:2, y:85},
+            {x:3, y:82},
+            {x:4, y:82},
+            {x:5, y:82},
+            {x:6, y:80},
+            {x:7, y:83},
+            {x:8, y:82},
+            {x:9, y:81},
+            {x:10, y:78},
+            {x:11, y:81},
+            {x:12, y:80},
+            ];
+          new Chart("myChart", {
+            type: "scatter",
+            data: {
+              datasets:[{
+                pointsRadius:4,
+                pointBackgroundColor:"rgb(0,0,255)",
+                data: weightValues
+              }]
+            },
+            options: {
+              legend: {display: false},
+              scales: { 
+                xAxes:[{ticks:{min:0, max:12}}],
+                yAxes:[{ticks:{min:60, max:100}}],
+              },
+            }
+          });
+        </script>
+        <div class="cust_foods">
+          <div>
+            <h4>Recommended Foods:</h4>
+            <div class="form">
+              <form action="">
+                <ul>
+                  <li>Whole eggs</li>
+                  <li>Leafy greens</li>
+                  <li>Chicken breast and lean meats</li>
+                  <li>Cruciferous vegetables</li>
+                  <li>Potatoes and other root vegetables</li>
+                  <li>Beans and legumes</li>
+                  <li>Fruits</li>
+                  <li>Avocados</li>
+                  <li>Soups</li>
+                  <li>Nuts</li>
+                  <li>Water</li>
+                </ul>             
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="cust_profile">
+        <h4>Customer profile:</h4>
+          <div class="form">
+            <form action="">
+              <label for="name">Name:</label>
+              <label for="username">Lerato Nkosi</label><br>
+              <label for="Journey">Weight goal:</label>
+              <label for="userJourney">Weight loss</label><br>
+              <label for="mnths_progress">Journey length:</label>
+              <label for="user_mnths">12 months</label><br>
+              <label for="mnths_progress">Average weight:</label>
+              <label for="user_mnths"></label>81 kgs<br>
+              <label for="goal_weight"></label>Goal Weight:</label>
+              <label for="user_goal_weight">70 kgs</label><br>
+            </form>
+          </div>
+          <div>
+            <h4>Recommended workout program:</h4>
+            <div class="form">
+              <form action="">
+                <h4>Monday</h4>
+                <label for="Monday_work">Squat 5 sets x 8 reps</label><br>
+                <label for="Monday_work">Superset: Dumbbell bench press 3 sets X 8 reps & push ups 3 sets X 12 reps</label><br>
+                <label for="Monday_work">Superset: Bulgrian Squat 4 x 8 & ab movement</label><br>
+                <label for="Monday_work">Mountain climbers 4 sets X 10 reps</label><br>
+                <h4>Tuesday</h4>
+                <label for="Tuesday_work">20 minute HIIT </label><br>
+                <label for="Tuesday_work">Options: Spinning, running, rowing & Crossfit Tabata </label><br>
+                <h4>Wednesday</h4>
+                <label for="Wednesday_work">Goblet squat 5 sets x 8 reps</label><br>
+                <label for="Wednesday_work">Superset: Single-arm bent-over row 3 sets X 8 reps & dumbbell curls 3 sets X 12 reps</label><br>
+                <label for="Wednesday_work">Superset:  Step-ups 4 x 8 & ab movement</label><br>
+                <label for="Wednesday_work">Plank 4 sets X 45 secs</label><br>  
+                <h4>Thursday</h4>
+                <label for="Thursday_work">Steady cardio 45 mins</label><br> 
+                <label for="Thursday_work">Options: Spinning, running, rowing</label><br>
+                <h4>Friday</h4>
+                <label for="Friday_work">Deadlift 5 sets x 8 reps</label><br>
+                <label for="Friday_work">Superset:  Military press 3 sets X 8 reps & barbell curls 3 sets X 12 reps</label><br>
+                <label for="Friday_work">Superset:  reverse lunge 4 x 8 & ab movement</label><br>
+                <label for="Friday_work">Russian twists 4 sets X 45 secs</label><br>              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+      <!-- End Main -->
+    </div>
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
